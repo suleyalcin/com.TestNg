@@ -13,7 +13,7 @@ public class C02_ConfigReaderKullanimi {
     public void test01() {
         FacebookPage facebookPage = new FacebookPage();
         // facebook anasayfaya gidin
-        Driver.getDriver().get(ConfigReader.getProperty("facebookUrl"));
+        Driver.getDriver().get(ConfigReader.getProperty("facebookUrl"));//ConfigReader=kocum  getProperty==>bir kosu git
         // cikarsa cookies kabul edin
         // facebookPage.cookieButonu.click();
        facebookPage.gelismisButonu.click();

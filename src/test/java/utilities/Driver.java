@@ -16,11 +16,22 @@ public class Driver {
    Driver class'indan static method'lar kullanarak
    driver olusturup, ilgili ayarlarin yapilmasi
    ve en sonda driver'in kapatilmasi tercih edilmistir.
+
+   POM' de Driver classindaki getDriver()'nin obje olusturularak kullanilmasina engel olmak icin Singleton Pattern kullanimi benimsenmistir.
+   Singleton Pattern:tekli Kullanim,bir classin farkli class'lardan
+   obje olusturularak kullanimi engellemek icin kullanilir.
+
+   Bunu saglamak icin yapmamaiz gereken sey oldukca basit .
+   Obje olusturmak icin kullanilan constructor'i private yaptiginizda baska classslarda Driver class'indan
+   obje olusturulmasi mumkun degildir
     */
+   private Driver(){
+
+    }
     static WebDriver driver;
     public static WebDriver getDriver(){
         if (driver==null) {
-            switch (ConfigReader.getProperty("browser")){
+            switch (ConfigReader.getProperty("browser")){//kocum ConfigReader; bir kosu ==>getProperty browser getir
                 case "chrome" :
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
@@ -36,6 +47,10 @@ public class Driver {
                 case "headless-chrome":
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver(new ChromeOptions().setHeadless(true));
+                    break;
+                case "Edge":
+                    WebDriverManager.edgedriver().setup();
+                    driver=new EdgeDriver();
                     break;
 
                 default:

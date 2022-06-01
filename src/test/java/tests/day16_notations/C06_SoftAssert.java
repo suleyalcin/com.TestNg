@@ -16,7 +16,7 @@ public class C06_SoftAssert extends TestBase {
     //soft assert"'un baslangici obje olusturmaktir.
     SoftAssert softAssert=new SoftAssert();
 
-    @Test
+    @Test(groups = "grup2")
     public void test01() {
         //1-amazon anasayfaya gidin
         driver.get("https://www.amazon.com");

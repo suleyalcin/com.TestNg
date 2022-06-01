@@ -28,7 +28,7 @@ public class C03_Priorty extends TestBase {
         System.out.println(driver.getCurrentUrl());
     }
 
-    @Test
+    @Test(groups = "grup1")
     public void techproedTesti() {
         System.out.println("techproedTesti testi");
         System.out.println(driver.getCurrentUrl());
